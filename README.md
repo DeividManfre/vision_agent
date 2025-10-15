@@ -29,5 +29,5 @@ Built to showcase **AI integration, GPU efficiency, and DevOps monitoring** — 
 [link](http://127.0.0.1:6969/docs)
 
 <video width="640" controls>
-  <source src="video/default.mp4" type="video/mp4">
+  <source src="video/demo.gif" type="video/mp4">
 </video>

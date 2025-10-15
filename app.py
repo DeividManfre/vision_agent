@@ -1,9 +1,10 @@
-from fastapi import FastAPI, UploadFile
+from core.analyzer import Describer
 from core.metrics import gpu_usage, ram_usage, timed_inference
-from core.analyzer import describe_image
 import tempfile
+from fastapi import FastAPI, UploadFile
 
 app = FastAPI()
+describer = Describer()
 
 @app.post("/analyze")
 async def analyze_image(file: UploadFile):
@@ -11,19 +12,16 @@ async def analyze_image(file: UploadFile):
         tmp.write(await file.read())
         tmp_path = tmp.name
 
-    (ram_before, ram_total) = ram_usage()
-    (vram_before, vram_total) = gpu_usage()
+    result, elapsed = timed_inference(describer.describe_image, tmp_path)
 
-    caption, elapsed = timed_inference(describe_image, tmp_path)
-
-    (ram_after, _) = ram_usage()
-    (vram_after, _) = gpu_usage()
+    (ram_used, ram_total) = ram_usage()
+    (vram_used, vram_total) = gpu_usage()
 
     return {
-        "caption": caption,
+        "caption": result,
         "metrics": {
             "latency_sec": round(elapsed, 2),
-            "ram_used_mb": round(ram_after - ram_before, 2),
-            "vram_used_mb": round(vram_after - vram_before, 2)
-        }
+            "ram_used_mb": round(ram_used, 2),
+            "vram_used_mb": round(vram_used, 2),
+        },
     }

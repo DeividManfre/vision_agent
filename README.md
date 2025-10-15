@@ -1,23 +1,33 @@
 # Vision Agent
 
-**Vision Agent** is a lightweight AI application that:
-- Describes images and detects visual elements  
-- Measures inference speed, RAM and VRAM usage  
-- Generates Markdown or Streamlit dashboards with performance metrics  
+**Vision Agent** is a lightweight AI system that analyzes and describes images while tracking real-time system efficiency.
 
-Built to demonstrate **AI integration, GPU optimization and DevOps awareness** — ideal for portfolio and open-source benchmarking.
+### What it does
+- **Generates detailed image captions** using SmolVLM or Qwen-VL models  
+- **Identifies visual elements** and contextual objects  
+- **Measures inference metrics** (latency, RAM, and VRAM usage)  
+- **Exports results** to Markdown or an interactive Streamlit dashboard  
 
-## Stack
-- Python · FastAPI / Streamlit  
-- OpenCV · SmolVLM / Qwen-VL  
-- psutil · pynvml  
-
-## Goal
-Showcase real-world AI engineering: combining inference efficiency, visual intelligence and system metrics in one project.
-
-## Example Use
-Upload an image → get a caption and object summary → view performance report.
+Built to showcase **AI integration, GPU efficiency, and DevOps monitoring** — ideal for portfolios, benchmarks, and production-ready demos.
 
 ---
 
-*By [@DeividManfre](https://github.com/DeividManfre) — AI Engineer & Software Developer*
+## Tech Stack
+- **Python** · FastAPI / Streamlit  
+- **Models:** SmolVLM · Qwen2.5-VL  
+- **Metrics:** psutil · pynvml  
+- **Utilities:** OpenCV · Pillow · Torch  
+
+---
+
+## Example Usage
+
+
+```
+ uvicorn app:app --reload --port 6969
+```
+[link](http://127.0.0.1:6969/docs)
+
+<video width="640" controls>
+  <source src="video/default.mp4" type="video/mp4">
+</video>

@@ -28,4 +28,4 @@ Built to showcase **AI integration, GPU efficiency, and DevOps monitoring** — 
 ```
 [link to localhost](http://127.0.0.1:6969/docs)
 
-[![Demo Preview]([video/demo.gif])]
+![Demonstração](assets/demo.gif)

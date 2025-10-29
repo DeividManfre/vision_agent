@@ -27,5 +27,3 @@ Built to showcase **AI integration, GPU efficiency, and DevOps monitoring** — 
  uvicorn app:app --reload --port 6969
 ```
 [link to localhost](http://127.0.0.1:6969/docs)
-
-![Demonstração](assets/demo.gif)
